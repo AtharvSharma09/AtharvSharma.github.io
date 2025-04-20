@@ -8,8 +8,8 @@ Features
 A welcoming introduction with a brief bio and call-to-action.
 ## About Section:
 Detailed information about my background, skills, and expertise.
-## Projects Section
-: A gallery of projects with descriptions, technologies used, and links to live demos or repositories.
+## Projects Section:
+ A gallery of projects with descriptions, technologies used, and links to live demos or repositories.
 ## Contact Section:
 A form or contact information for visitors to reach out.
 ## Responsive Design:
