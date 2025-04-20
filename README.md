@@ -26,7 +26,8 @@ Hosting: GitHub Pages
 
 
 ## Usage
-https://atharvsharma09.github.io/
+## https://atharvsharma09.github.io/
+
 Open the website in a browser to explore the content.
 Customize the content by editing the relevant files in the src or public directories.
 Update the projects section by adding new entries to the data source (e.g., a JSON file or static content).
