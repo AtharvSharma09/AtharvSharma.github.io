@@ -37,6 +37,8 @@ Update the projects section by adding new entries to the data source (e.g., a JS
 For questions or feedback, feel free to reach out:
 
 Email: atharvsharmatgu@gmail.com
+
 GitHub: AtharvSharma09
+
 LinkedIn: Coming Soon!
 
