@@ -18,7 +18,9 @@ Optimized for both desktop and mobile devices.
 ## Technologies Used
 
 Frontend: HTML, CSS, JavaScript
+
 Styling: Tailwind CSS
+
 Hosting: GitHub Pages
 
 
