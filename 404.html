@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 – Page Not Found</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .animate-fade-in { animation: fadeIn 1s ease-out; }
+    .animate-slide-in { animation: slideInLeft 0.5s ease-out; }
+    .animate-pulse { animation: pulse 2s ease-in-out infinite; }
+    .nav-link:nth-child(1) { animation-delay: 0.1s; }
+    .nav-link:nth-child(2) { animation-delay: 0.2s; }
+    .nav-link:nth-child(3) { animation-delay: 0.3s; }
+    .nav-link:nth-child(4) { animation-delay: 0.4s; }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-200">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full p-6 border-b border-gray-800 shadow-sm bg-gray-950 z-10">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">Atharv Sharma</h1>
+      <nav class="space-x-4">
+        <a href="index.html" class="nav-link animate-slide-in hover:underline text-blue-400">Home</a>
+        <a href="projects.html" class="nav-link animate-slide-in hover:underline text-blue-400">Projects</a>
+        <a href="blog.html" class="nav-link animate-slide-in hover:underline text-blue-400">Blog</a>
+        <a href="contact.html" class="nav-link animate-slide-in hover:underline text-blue-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 404 Section -->
+  <main class="min-h-screen flex flex-col justify-center items-center px-4 pt-24 animate-fade-in">
+    <h2 class="text-6xl font-bold mb-4 animate-pulse">404</h2>
+    <p class="text-xl text-gray-400 mb-8">Oops! The page you're looking for doesn't exist.</p>
+    <a href="index.html" class="bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-blue-800 hover:scale-105 transition transform">
+      Back to Home
+    </a>
+  </main>
+
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;
+  if(b){var d=b.createElement('script');
+  d.innerHTML="window.__CF$cv$params={r:'93326a746b96674a',t:'MTc0NTEyODc2OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+  b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';
+  a.style.top=0;a.style.left=0;
+  a.style.border='none';
+  a.style.visibility='hidden';document.body.appendChild(a);
+  if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};
+  document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})()
+  </script>
+</body>
+</html>

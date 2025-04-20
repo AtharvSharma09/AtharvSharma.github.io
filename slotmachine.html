@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Slot Machine Game – Atharv Sharma</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1s ease-out both;
+    }
+
+    .animate-slide-in {
+      animation: slideInLeft 0.5s ease-out both;
+    }
+
+    .nav-link:nth-child(1) { animation-delay: 0.1s; }
+    .nav-link:nth-child(2) { animation-delay: 0.2s; }
+    .nav-link:nth-child(3) { animation-delay: 0.3s; }
+    .nav-link:nth-child(4) { animation-delay: 0.4s; }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-200">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full p-6 border-b border-gray-800 shadow-sm bg-gray-950 z-10">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold"><span style="color: #4A45EE;">Atharv</span> Sharma</h1>
+      <nav class="space-x-4">
+        <a href="index.html" class="nav-link animate-slide-in hover:underline" style="color: #4A45EE;">Home</a>
+        <a href="projects.html" class="nav-link animate-slide-in hover:underline" style="color: #4A45EE;">Projects</a>
+        <a href="blog.html" class="nav-link animate-slide-in hover:underline" style="color: #4A45EE;">Blog</a>
+        <a href="contact.html" class="nav-link animate-slide-in font-semibold hover:underline" style="color: #4A45EE;">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Project Details Section -->
+  <main class="min-h-screen pt-24 pb-16 animate-fade-in">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-4xl font-bold mb-2">Slot Machine Game</h2>
+      <p class="text-gray-400 mb-10">A Python-based console slot machine game with betting and payouts.</p>
+
+      <div class="text-left">
+        <p class="text-gray-400 mb-4">
+          This is a console-based Slot Machine game built using Python. The game simulates a 3x3 slot machine grid where players can deposit money, choose to bet on 1 to 3 lines, and place a bet amount. Winnings are calculated based on matching symbols across the bet lines, with higher payouts for rare combinations like three '7' symbols.
+        </p>
+        <p class="text-gray-400 mb-4">
+          <strong>How it Works:</strong> Players start by depositing an amount, selecting 1 to 3 betting lines, and specifying a bet amount. The game generates a 3x3 grid of random symbols (A, B, C, D, E, F, or 7). Winnings are determined by the number of matching symbols on the selected lines, with multipliers applied based on the combination (e.g., three '7's yield higher payouts). The balance is updated after each spin, and players can choose to continue or cash out.
+        </p>
+        <p class="text-gray-400 mb-4">
+          <strong>Rating:</strong> 7.5/10 – A fun and engaging implementation of a slot machine with solid betting mechanics, though a graphical interface could enhance the experience.
+        </p>
+        <p class="text-gray-400 mb-4">
+          <strong>Source Code:</strong> <a href="https://github.com/AtharvSharma09/SlotMachine" class="text-blue-400 hover:underline">View on GitHub</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
