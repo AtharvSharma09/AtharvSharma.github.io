@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio Optimization Tool – Your Name</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1s ease-out both;
+    }
+
+    .animate-slide-in {
+      animation: slideInLeft 0.5s ease-out both;
+    }
+
+    .nav-link:nth-child(1) { animation-delay: 0.1s; }
+    .nav-link:nth-child(2) { animation-delay: 0.2s; }
+    .nav-link:nth-child(3) { animation-delay: 0.3s; }
+    .nav-link:nth-child(4) { animation-delay: 0.4s; }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-200">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full p-6 border-b border-gray-800 shadow-sm bg-gray-950 z-10">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold"><span style="color: #4A45EE;">Your</span> Name</h1>
+      <nav class="space-x-4">
+        <a href="index.html" class="nav-link animate-slide-in hover:underline" style="color: #4A45EE;">Home</a>
+        <a href="projects.html" class="nav-link animate-slide-in hover:underline" style="color: #4A45EE;">Projects</a>
+        <a href="blog.html" class="nav-link animate-slide-in hover:underline" style="color: #4A45EE;">Blog</a>
+        <a href="contact.html" class="nav-link animate-slide-in font-semibold hover:underline" style="color: #4A45EE;">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Project Details Section -->
+  <main class="min-h-screen pt-24 pb-16 animate-fade-in">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-4xl font-bold mb-2">Markowitz's Efficient Frontier</h2>
+      <p class="text-gray-400 mb-10">A tool that generates optimized portfolio weights based on user-defined risk constraints.</p>
+
+      <div class="text-left">
+        <p class="text-gray-400 mb-4">
+          This is a command-line tool built in Python that optimizes portfolio weights for NIFTY 500 stocks to maximize returns for a user-specified maximum annualized risk. It uses historical stock data from Yahoo Finance and applies the Efficient Frontier concept to determine optimal allocations.
+        </p>
+        <p class="text-gray-400 mb-4">
+          <strong>How it Works:</strong> The tool downloads historical stock prices, calculates daily returns, and allows users to input a maximum risk level (e.g., 20%). It then uses the `scipy.optimize` library to compute the portfolio weights that maximize expected returns while keeping risk below the specified threshold. Users can provide custom weights via a CSV file, and the tool calculates portfolio risk using the annualized covariance matrix.
+        </p>
+        <p class="text-gray-400 mb-4">
+          <strong>Rating:</strong> 9.5/10 – A robust tool for portfolio optimization with practical applications, though it could benefit from a graphical interface or real-time data integration.
+        </p>
+        <p class="text-gray-400 mb-4">
+          <strong>Source Code:</strong> <a href="https://github.com/AtharvSharma09/Efficient-Frontier" class="text-blue-400 hover:underline">View on GitHub</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
