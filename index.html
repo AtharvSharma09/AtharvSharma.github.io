@@ -25,10 +25,20 @@
     .blog-card:nth-child(2) { animation-delay: 0.4s; }
     .project-card:nth-child(1) { animation-delay: 0.2s; }
     .project-card:nth-child(2) { animation-delay: 0.4s; }
+    .blog-image-container {
+      position: relative;
+      overflow: hidden;
+      background-color: #1F2937; /* Fallback for broken images */
+    }
+    .blog-image-container img {
+      transition: transform 0.3s ease;
+    }
+    .blog-card:hover .blog-image-container img {
+      transform: scale(1.05); /* Subtle zoom effect on hover */
+    }
   </style>
 </head>
 <body class="bg-gray-950 text-gray-200">
-
   <!-- Header -->
   <header class="fixed top-0 left-0 w-full p-6 border-b border-gray-800 shadow-sm bg-gray-950 z-10">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -63,90 +73,92 @@
       </div>
     </div>
   </section>
+
   <!-- About Me Section -->
-<section class="py-16 bg-gray-900 animate-fade-in">
-  <div class="max-w-5xl mx-auto px-4">
-    <h2 class="text-4xl font-bold mb-6">About Me</h2>
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <h3 class="text-2xl font-semibold mb-4" style="color: #4A45EE;">I Build Digital Experiences That Matter</h3>
-        <p class="text-gray-300 mb-6 text-lg">
-          I'm a passionate developer with a strong foundation in Python, CSS, HTML, and JavaScript, specializing in Python and data science. I thrive on transforming complex data into actionable insights, leveraging Python's powerful libraries to build robust solutions. My expertise in web development allows me to create seamless, user-friendly interfaces, but my true focus lies in harnessing data to solve real-world problems. Whether it's crafting clean code or diving deep into data analysis, I'm driven by curiosity and a commitment to excellence.
-        </p>
-        <div class="space-y-4">
-          <div class="flex items-start">
-            <div class="flex-shrink-0 mt-1 mr-4 text-[#4A45EE]">
-              <ion-icon name="checkmark-circle" class="text-2xl"></ion-icon>
+  <section class="py-16 bg-gray-900 animate-fade-in">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-4xl font-bold mb-6">About Me</h2>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-2xl font-semibold mb-4" style="color: #4A45EE;">I Build Digital Experiences That Matter</h3>
+          <p class="text-gray-300 mb-6 text-lg">
+            I'm a passionate developer with a strong foundation in Python, CSS, HTML, and JavaScript, specializing in Python and data science. I thrive on transforming complex data into actionable insights, leveraging Python's powerful libraries to build robust solutions. My expertise in web development allows me to create seamless, user-friendly interfaces, but my true focus lies in harnessing data to solve real-world problems. Whether it's crafting clean code or diving deep into data analysis, I'm driven by curiosity and a commitment to excellence.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1 mr-4 text-[#4A45EE]">
+                <ion-icon name="checkmark-circle" class="text-2xl"></ion-icon>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg">50+ Projects Completed</h4>
+                <p class="text-gray-400">From CLI tools to full-stack web applications</p>
+              </div>
             </div>
-            <div>
-              <h4 class="font-semibold text-lg">50+ Projects Completed</h4>
-              <p class="text-gray-400">From CLI tools to full-stack web applications</p>
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1 mr-4 text-[#4A45EE]">
+                <ion-icon name="checkmark-circle" class="text-2xl"></ion-icon>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg">Clean, Efficient Code</h4>
+                <p class="text-gray-400">My code is well-structured, documented, and optimized</p>
+              </div>
             </div>
-          </div>
-          <div class="flex items-start">
-            <div class="flex-shrink-0 mt-1 mr-4 text-[#4A45EE]">
-              <ion-icon name="checkmark-circle" class="text-2xl"></ion-icon>
-            </div>
-            <div>
-              <h4 class="font-semibold text-lg">Clean, Efficient Code</h4>
-              <p class="text-gray-400">My code is well-structured, documented, and optimized</p>
-            </div>
-          </div>
-          <div class="flex items-start">
-            <div class="flex-shrink-0 mt-1 mr-4 text-[#4A45EE]">
-              <ion-icon name="checkmark-circle" class="text-2xl"></ion-icon>
-            </div>
-            <div>
-              <h4 class="font-semibold text-lg">Quick Learner</h4>
-              <p class="text-gray-400">I master new technologies faster than most developers</p>
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1 mr-4 text-[#4A45EE]">
+                <ion-icon name="checkmark-circle" class="text-2xl"></ion-icon>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg">Quick Learner</h4>
+                <p class="text-gray-400">I master new technologies faster than most developers</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
-        <h4 class="text-xl font-semibold mb-4" style="color: #4A45EE;">My Skills</h4>
-        <div class="space-y-3">
-          <div>
-            <div class="flex justify-between mb-1">
-              <span>Python</span>
-              <span>Advanced</span>
+        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+          <h4 class="text-xl font-semibold mb-4" style="color: #4A45EE;">My Skills</h4>
+          <div class="space-y-3">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Python</span>
+                <span>Advanced</span>
+              </div>
+              <div class="w-full bg-gray-700 rounded-full h-2.5">
+                <div class="bg-[#4A45EE] h-2.5 rounded-full" style="width: 90%"></div>
+              </div>
             </div>
-            <div class="w-full bg-gray-700 rounded-full h-2.5">
-              <div class="bg-[#4A45EE] h-2.5 rounded-full" style="width: 90%"></div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>NumPy</span>
+                <span>Advanced</span>
+              </div>
+              <div class="w-full bg-gray-700 rounded-full h-2.5">
+                <div class="bg-[#4A45EE] h-2.5 rounded-full" style="width: 80%"></div>
+              </div>
             </div>
-          </div>
-          <div>
-            <div class="flex justify-between mb-1">
-              <span>NumPy</span>
-              <span>Advanced</span>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Pandas</span>
+                <span>Intermediate</span>
+              </div>
+              <div class="w-full bg-gray-700 rounded-full h-2.5">
+                <div class="bg-[#4A45EE] h-2.5 rounded-full" style="width: 65%"></div>
+              </div>
             </div>
-            <div class="w-full bg-gray-700 rounded-full h-2.5">
-              <div class="bg-[#4A45EE] h-2.5 rounded-full" style="width: 80%"></div>
-            </div>
-          </div>
-          <div>
-            <div class="flex justify-between mb-1">
-              <span>Pandas</span>
-              <span>Intermediate</span>
-            </div>
-            <div class="w-full bg-gray-700 rounded-full h-2.5">
-              <div class="bg-[#4A45EE] h-2.5 rounded-full" style="width: 65%"></div>
-            </div>
-          </div>
-          <div>
-            <div class="flex justify-between mb-1">
-              <span>JavaScript</span>
-              <span>Advanced</span>
-            </div>
-            <div class="w-full bg-gray-700 rounded-full h-2.5">
-              <div class="bg-[#4A45EE] h-2.5 rounded-full" style="width: 80%"></div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>JavaScript</span>
+                <span>Advanced</span>
+              </div>
+              <div class="w-full bg-gray-700 rounded-full h-2.5">
+                <div class="bg-[#4A45EE] h-2.5 rounded-full" style="width: 80%"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
   <!-- Featured Projects Section -->
   <section class="py-16 bg-gray-900 animate-fade-in">
     <div class="max-w-5xl mx-auto px-4">
@@ -155,7 +167,7 @@
       <div class="grid md:grid-cols-2 gap-8">
         <div class="project-card p-6 border border-gray-800 rounded-lg bg-gray-900 hover:shadow-lg hover:scale-105 transition transform">
           <div class="h-48 bg-gray-800 mb-4 rounded-lg overflow-hidden">
-            <img class="object-cover w-full h-full" src="src/Frontier.png" alt="Markowitz's Efficient Frontier">
+            <img class="object-cover w-full h-full" src="assets/Frontier.png" alt="Markowitz's Efficient Frontier">
           </div>
           <h3 class="text-2xl font-semibold mb-2">Markowitz's Efficient Frontier</h3>
           <p class="text-gray-400 mb-4">A tool that generates optimized portfolio weights based on user-defined risk constraints.</p>
@@ -165,12 +177,11 @@
             <span class="text-blue-400">Scipy</span>
             <span class="text-blue-400">Yfinance</span>
           </div>
-          <a href="projects/frontier.html" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">View Project</a>
+          <a href="project/frontier.html" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">View Project</a>
         </div>
-        
         <div class="project-card p-6 border border-gray-800 rounded-lg bg-gray-900 hover:shadow-lg hover:scale-105 transition transform">
           <div class="h-48 bg-gray-800 mb-4 rounded-lg overflow-hidden">
-            <img class="object-cover w-full h-full" src="src/workoutimg.webp" alt="Personalised Workout Generator">
+            <img class="object-cover w-full h-full" src="assets/workoutimg.webp" alt="Personalised Workout Generator">
           </div>
           <h3 class="text-2xl font-semibold mb-2">Personalised Workout Generator</h3>
           <p class="text-gray-400 mb-4">A Python CLI tool that generates personalized workout routines.</p>
@@ -179,8 +190,9 @@
             <span class="text-blue-400">CLI</span>
             <span class="text-blue-400">Random</span>
           </div>
-          <a href="projects/workout.html" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">View Project</a>
+          <a href="project/workout.html" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">View Project</a>
         </div>
+      </div>
     </div>
   </section>
 
@@ -191,22 +203,22 @@
       <p class="text-gray-400 mb-8 text-lg">Thoughts, tutorials, and insights from my experiences</p>
       <div class="grid md:grid-cols-2 gap-8">
         <div class="blog-card p-6 border border-gray-800 rounded-lg bg-gray-900 hover:shadow-lg hover:scale-105 transition transform">
-          <div class="h-48 bg-gray-800 mb-4 rounded-lg flex items-center justify-center">
-            <span class="text-gray-500"><img class="object-cover w-full h-full" src="src/Logo.png" alt=""></span>
+          <div class="blog-image-container h-48 mb-4 rounded-lg">
+            <img class="object-cover w-full h-full" src="assets/Logo.png" alt="Python Basics Blog">
           </div>
           <p class="text-gray-400 text-sm mb-2">April 20, 2025</p>
-          <h3 class="text-2xl font-semibold mb-2">Baics of python</h3>
-          <p class="text-gray-400 mb-4">Exploring Python!</p>
-          <a href="blogs/blog01_basics_py.html" class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700">Read Post</a>
+          <h3 class="text-2xl font-semibold mb-2">Basics of Python</h3>
+          <p class="text-gray-400 mb-4">Exploring the vast land Python!</p>
+          <a href="project/blog01_basics_py.html" class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700">Read Post</a>
         </div>
         <div class="blog-card p-6 border border-gray-800 rounded-lg bg-gray-900 hover:shadow-lg hover:scale-105 transition transform">
-          <div class="h-48 bg-gray-800 mb-4 rounded-lg flex items-center justify-center">
-            <span class="text-gray-500"><img class="object-cover w-full h-full" src="src/Logo.png" alt=""><</span>
+          <div class="blog-image-container h-48 mb-4 rounded-lg">
+            <img class="object-cover w-full h-full" src="assets/Logo.png" alt="OOP with Python Blog">
           </div>
           <p class="text-gray-400 text-sm mb-2">April 24, 2025</p>
-          <h3 class="text-2xl font-semibold mb-2">OOP with python</h3>
+          <h3 class="text-2xl font-semibold mb-2">OOP with Python</h3>
           <p class="text-gray-400 mb-4">Discovering Object Oriented Programming with Python.</p>
-          <a href="blogs/blog02_OOP_py.html" class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700">Read Post</a>
+          <a href="project/blog02_OOP_py.html" class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700">Read Post</a>
         </div>
       </div>
     </div>
@@ -247,10 +259,11 @@
       © 2025 Atharv Sharma. All rights reserved. | Designed and built with passion
     </div>
   </footer>
-  
+
+  <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
   <script>
     const footer = document.querySelector("footer");
-  
+
     function toggleFooter() {
       if (window.scrollY > 100) {
         footer.classList.remove("opacity-0", "pointer-events-none");
@@ -258,13 +271,9 @@
         footer.classList.add("opacity-0", "pointer-events-none");
       }
     }
-  
+
     window.addEventListener("scroll", toggleFooter);
     document.addEventListener("DOMContentLoaded", toggleFooter);
   </script>
-  
-<script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93326a746b96674a',t:'MTc0NTEyODc2OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9333ca64afbb6754',t:'MTc0NTE0MzE4NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
