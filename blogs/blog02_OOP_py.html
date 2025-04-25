@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atharv Sharma - Blog: Python Classes, Scopes, and Decorators</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/ionicons@5.5.2/dist/ionicons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .animate-fade-in { animation: fadeIn 1s ease-out; }
+    .animate-slide-in { animation: slideInLeft 0.5s ease-out; }
+    .nav-link:nth-child(1) { animation-delay: 0.1s; }
+    .nav-link:nth-child(2) { animation-delay: 0.2s; }
+    .nav-link:nth-child(3) { animation-delay: 0.3s; }
+    .nav-link:nth-child(4) { animation-delay: 0.4s; }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-200">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full p-6 border-b border-gray-800 shadow-sm bg-gray-950 z-10">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold"><span style="color: #4A45EE;">Atharv</span> Sharma</h1>
+      <nav class="space-x-4">
+        <a href="../index.html" class="nav-link animate-slide-in hover:underline" style="color: #4A45EE;">Home</a>
+        <a href="../projects.html" class="nav-link animate-slide-in hover:underline" style="color: #4A45EE;">Projects</a>
+        <a href="../blog.html" class="nav-link animate-slide-in hover:underline" style="color: #4A45EE;">Blog</a>
+        <a href="../contact.html" class="nav-link animate-slide-in font-semibold hover:underline" style="color: #4A45EE;">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Blog Content Section -->
+  <section class="py-16 pt-24 animate-fade-in">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-4xl font-bold">Python Classes, Scopes, and Decorators: A Comprehensive Guide</h2>
+        <button id="langToggle" class="bg-[#4A45EE] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#3A35CE] transition">
+          Switch to Hindi
+        </button>
+      </div>
+
+      <!-- English Content (Default) -->
+      <div id="englishContent" class="content-active">
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Introduction to Classes</h3>
+        <p class="text-gray-300 mb-6 text-lg">
+          Classes in Python are blueprints for creating objects, enabling object-oriented programming (OOP). They bundle data (attributes) and behavior (methods) into a single unit. Classes are ideal for modeling real-world entities, like a car or a user, and support concepts like inheritance and polymorphism.
+        </p>
+        <p class="text-gray-300 mb-4 text-lg">
+          Here’s a simple class for a <code>Car</code>:
+        </p>
+        <pre><code class="language-python">
+class Car:
+    def __init__(self, brand, model):
+        self.brand = brand  # Instance attribute
+        self.model = model
+        self.is_running = False
+    
+    def start_engine(self):
+        self.is_running = True
+        return f"{self.brand} {self.model}'s engine is running!"
+    
+    def stop_engine(self):
+        self.is_running = False
+        return f"{self.brand} {self.model}'s engine is stopped."
+
+# Creating an object
+my_car = Car("Toyota", "Camry")
+print(my_car.start_engine())  # Output: Toyota Camry's engine is running!
+print(my_car.is_running)      # Output: True
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          The <code>__init__</code> method initializes object attributes. <code>self</code> refers to the instance, allowing access to its attributes and methods. You can create multiple objects from the same class, each with its own state.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Inheritance and Polymorphism</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Inheritance allows a class to inherit attributes and methods from another class, promoting code reuse. Polymorphism lets subclasses redefine methods for specialized behavior.
+        </p>
+        <pre><code class="language-python">
+class ElectricCar(Car):  # Inherits from Car
+    def __init__(self, brand, model, battery_capacity):
+        super().__init__(brand, model)  # Call parent's __init__
+        self.battery_capacity = battery_capacity
+    
+    def start_engine(self):  # Override parent's method
+        self.is_running = True
+        return f"{self.brand} {self.model}'s electric motor is humming!"
+
+tesla = ElectricCar("Tesla", "Model 3", 75)
+print(tesla.start_engine())  # Output: Tesla Model 3's electric motor is humming!
+print(tesla.battery_capacity) # Output: 75
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          <code>super()</code> accesses the parent class’s methods. <code>ElectricCar</code> overrides <code>start_engine</code> to provide a different implementation, demonstrating polymorphism.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Understanding Scopes</h3>
+        <p class="text-gray-300 mb-6 text-lg">
+          Scope defines where a variable is accessible in your code. Python has four scope levels: <strong>Local</strong>, <strong>Enclosing</strong>, <strong>Global</strong>, and <strong>Built-in</strong> (LEGB rule). Variables are resolved in this order.
+        </p>
+        <p class="text-gray-300 mb-4 text-lg">
+          Example of scopes:
+        </p>
+        <pre><code class="language-python">
+x = "global"  # Global scope
+
+def outer():
+    x = "enclosing"  # Enclosing scope
+    
+    def inner():
+        x = "local"  # Local scope
+        print(f"Inner: {x}")
+    
+    inner()
+    print(f"Outer: {x}")
+
+outer()
+print(f"Global: {x}")
+# Output:
+# Inner: local
+# Outer: enclosing
+# Global: global
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          Each function has its own scope. Use <code>global</code> or <code>nonlocal</code> to modify variables in outer scopes:
+        </p>
+        <pre><code class="language-python">
+count = 0
+
+def increment():
+    global count  # Access global variable
+    count += 1
+    return count
+
+def outer_counter():
+    counter = 0
+    def inner_counter():
+        nonlocal counter  # Access enclosing variable
+        counter += 1
+        return counter
+    return inner_counter()
+
+print(increment())  # Output: 1
+print(outer_counter())  # Output: 1
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          Be cautious with <code>global</code> to avoid unintended side effects. <code>nonlocal</code> is useful in nested functions.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Decorators</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Decorators are functions that modify the behavior of other functions or methods, often used for logging, timing, or access control. They use the <code>@</code> syntax.
+        </p>
+        <pre><code class="language-python">
+def logger(func):
+    def wrapper(*args, **kwargs):
+        print(f"Calling {func.__name__} with args: {args}, kwargs: {kwargs}")
+        result = func(*args, **kwargs)
+        print(f"{func.__name__} returned: {result}")
+        return result
+    return wrapper
+
+@logger
+def add(a, b):
+    return a + b
+
+print(add(3, 4))
+# Output:
+# Calling add with args: (3, 4), kwargs: {}
+# add returned: 7
+# 7
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          The <code>logger</code> decorator wraps <code>add</code>, logging its inputs and output. Decorators are powerful for adding functionality without modifying the original function.
+        </p>
+        <p class="text-gray-300 mb-4 text-lg">
+          Example: Timing a function:
+        </p>
+        <pre><code class="language-python">
+import time
+
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f"{func.__name__} took {end - start:.4f} seconds")
+        return result
+    return wrapper
+
+@timer
+def slow_function():
+    time.sleep(1)
+    return "Done"
+
+print(slow_function())
+# Output:
+# slow_function took 1.0012 seconds
+# Done
+        </code></pre>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Practical Example: Task Manager with Logging</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Let’s build a class-based task manager with a decorator to log method calls:
+        </p>
+        <pre><code class="language-python">
+def log_method(func):
+    def wrapper(self, *args, **kwargs):
+        print(f"Executing {func.__name__} on {self.__class__.__name__}")
+        result = func(self, *args, **kwargs)
+        print(f"Finished {func.__name__}")
+        return result
+    return wrapper
+
+class TaskManager:
+    def __init__(self):
+        self.tasks = []
+    
+    @log_method
+    def add_task(self, task):
+        self.tasks.append(task)
+        return f"Added task: {task}"
+    
+    @log_method
+    def remove_task(self, task):
+        if task in self.tasks:
+            self.tasks.remove(task)
+            return f"Removed task: {task}"
+        return f"Task not found: {task}"
+    
+    def list_tasks(self):
+        return self.tasks if self.tasks else "No tasks"
+
+# Usage
+manager = TaskManager()
+print(manager.add_task("Write blog"))  # Output: Executing add_task ... Added task: Write blog
+print(manager.add_task("Code project"))  # Output: Executing add_task ... Added task: Code project
+print(manager.list_tasks())  # Output: ['Write blog', 'Code project']
+print(manager.remove_task("Write blog"))  # Output: Executing remove_task ... Removed task: Write blog
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          This <code>TaskManager</code> class uses a decorator to log method calls, demonstrating classes and decorators in action. The <code>list_tasks</code> method shows how to access instance attributes safely.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Conclusion</h3>
+        <p class="text-gray-300 mb-6 text-lg">
+          Classes, scopes, and decorators are powerful Python features that enhance code organization and functionality. Classes enable OOP, scopes manage variable accessibility, and decorators add reusable behavior. To master these:
+          <ul class="list-disc ml-6 mb-4">
+            <li>Build projects like a library system using classes.</li>
+            <li>Experiment with decorators for logging or authentication.</li>
+            <li>Read the <a href="https://docs.python.org/3/" class="text-blue-400 hover:underline">Python documentation</a> or try platforms like Real Python or Coursera.</li>
+          </ul>
+          Practice these concepts to write cleaner, more modular Python code!
+        </p>
+      </div>
+
+      <!-- Hindi Content (Hidden by Default) -->
+      <div id="hindiContent" class="content-hidden hidden">
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Classes Ka Parichay</h3>
+        <p class="text-gray-300 mb-6 text-lg">
+          Python mein classes objects banane ke blueprints hote hain, jo object-oriented programming (OOP) ko sambhav banate hain. Yeh data (attributes) aur vyavhaar (methods) ko ek unit mein bandh dete hain. Classes real-world entities jaise car ya user ko model karne ke liye perfect hain, aur inheritance aur polymorphism jaise concepts ko support karte hain.
+        </p>
+        <p class="text-gray-300 mb-4 text-lg">
+          Yahan ek simple <code>Car</code> class hai:
+        </p>
+        <pre><code class="language-python">
+class Car:
+    def __init__(self, brand, model):
+        self.brand = brand  # Instance attribute
+        self.model = model
+        self.is_running = False
+    
+    def start_engine(self):
+        self.is_running = True
+        return f"{self.brand} {self.model} ka engine chal raha hai!"
+    
+    def stop_engine(self):
+        self.is_running = False
+        return f"{self.brand} {self.model} ka engine band hai."
+
+# Object banana
+meri_car = Car("Toyota", "Camry")
+print(meri_car.start_engine())  # Output: Toyota Camry ka engine chal raha hai!
+print(meri_car.is_running)      # Output: True
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          <code>__init__</code> method object ke attributes ko initialize karta hai. <code>self</code> instance ko refer karta hai, jisse uske attributes aur methods access hote hain. Ek hi class se aap kai objects bana sakte hain, har ek apni state ke sath.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Inheritance aur Polymorphism</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Inheritance ek class ko doosri class ke attributes aur methods inherit karne deta hai, jo code reuse ko badhava deta hai. Polymorphism subclasses ko methods ko specialized behavior ke liye redefine karne deta hai.
+        </p>
+        <pre><code class="language-python">
+class ElectricCar(Car):  # Car se inherit karta hai
+    def __init__(self, brand, model, battery_capacity):
+        super().__init__(brand, model)  # Parent ka __init__ call karein
+        self.battery_capacity = battery_capacity
+    
+    def start_engine(self):  # Parent ke method ko override karein
+        self.is_running = True
+        return f"{self.brand} {self.model} ka electric motor gunguna raha hai!"
+
+tesla = ElectricCar("Tesla", "Model 3", 75)
+print(tesla.start_engine())  # Output: Tesla Model 3 ka electric motor gunguna raha hai!
+print(tesla.battery_capacity) # Output: 75
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          <code>super()</code> parent class ke methods ko access karta hai. <code>ElectricCar</code> <code>start_engine</code> ko override karta hai, polymorphism dikhata hai.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Scopes Samajhna</h3>
+        <p class="text-gray-300 mb-6 text-lg">
+          Scope define karta hai ki variable code mein kahan accessible hai. Python mein char scope levels hain: <strong>Local</strong>, <strong>Enclosing</strong>, <strong>Global</strong>, aur <strong>Built-in</strong> (LEGB rule). Variables is order mein resolve hote hain.
+        </p>
+        <p class="text-gray-300 mb-4 text-lg">
+          Scopes ka example:
+        </p>
+        <pre><code class="language-python">
+x = "global"  # Global scope
+
+def outer():
+    x = "enclosing"  # Enclosing scope
+    
+    def inner():
+        x = "local"  # Local scope
+        print(f"Inner: {x}")
+    
+    inner()
+    print(f"Outer: {x}")
+
+outer()
+print(f"Global: {x}")
+# Output:
+# Inner: local
+# Outer: enclosing
+# Global: global
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          Har function ka apna scope hota hai. Outer scopes ke variables ko modify karne ke liye <code>global</code> ya <code>nonlocal</code> use karein:
+        </p>
+        <pre><code class="language-python">
+count = 0
+
+def increment():
+    global count  # Global variable access
+    count += 1
+    return count
+
+def outer_counter():
+    counter = 0
+    def inner_counter():
+        nonlocal counter  # Enclosing variable access
+        counter += 1
+        return counter
+    return inner_counter()
+
+print(increment())  # Output: 1
+print(outer_counter())  # Output: 1
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          <code>global</code> ke sath savdhani rakhein taaki galat side effects na ho. <code>nonlocal</code> nested functions mein kaam aata hai.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Decorators</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Decorators functions hote hain jo doosre functions ya methods ke vyavhaar ko modify karte hain, aksar logging, timing, ya access control ke liye. Yeh <code>@</code> syntax ka use karte hain.
+        </p>
+        <pre><code class="language-python">
+def logger(func):
+    def wrapper(*args, **kwargs):
+        print(f"{func.__name__} ko args: {args}, kwargs: {kwargs} ke sath call kiya")
+        result = func(*args, **kwargs)
+        print(f"{func.__name__} ne yeh return kiya: {result}")
+        return result
+    return wrapper
+
+@logger
+def add(a, b):
+    return a + b
+
+print(add(3, 4))
+# Output:
+# add ko args: (3, 4), kwargs: {} ke sath call kiya
+# add ne yeh return kiya: 7
+# 7
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          <code>logger</code> decorator <code>add</code> ko wrap karta hai, uske inputs aur output ko log karta hai. Decorators original function ko modify kiye bina functionality jodte hain.
+        </p>
+        <p class="text-gray-300 mb-4 text-lg">
+          Example: Function ka time measure karna:
+        </p>
+        <pre><code class="language-python">
+import time
+
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f"{func.__name__} ne {end - start:.4f} seconds liye")
+        return result
+    return wrapper
+
+@timer
+def slow_function():
+    time.sleep(1)
+    return "Ho gaya"
+
+print(slow_function())
+# Output:
+# slow_function ne 1.0012 seconds liye
+# Ho gaya
+        </code></pre>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Practical Example: Task Manager with Logging</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Chaliye, ek class-based task manager banate hain jo method calls ko log karne ke liye decorator ka use karta hai:
+        </p>
+        <pre><code class="language-python">
+def log_method(func):
+    def wrapper(self, *args, **kwargs):
+        print(f"{func.__name__} ko {self.__class__.__name__} par execute kar rahe hain")
+        result = func(self, *args, **kwargs)
+        print(f"{func.__name__} khatam hua")
+        return result
+    return wrapper
+
+class TaskManager:
+    def __init__(self):
+        self.tasks = []
+    
+    @log_method
+    def add_task(self, task):
+        self.tasks.append(task)
+        return f"Task joda: {task}"
+    
+    @log_method
+    def remove_task(self, task):
+        if task in self.tasks:
+            self.tasks.remove(task)
+            return f"Task hata diya: {task}"
+        return f"Task nahi mila: {task}"
+    
+    def list_tasks(self):
+        return self.tasks if self.tasks else "Koi tasks nahi"
+
+# Usage
+manager = TaskManager()
+print(manager.add_task("Blog likho"))  # Output: ... Task joda: Blog likho
+print(manager.add_task("Project code karo"))  # Output: ... Task joda: Project code karo
+print(manager.list_tasks())  # Output: ['Blog likho', 'Project code karo']
+print(manager.remove_task("Blog likho"))  # Output: ... Task hata diya: Blog likho
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          Yeh <code>TaskManager</code> class decorator ka use karta hai method calls ko log karne ke liye, classes aur decorators ko action mein dikhata hai. <code>list_tasks</code> method instance attributes ko safely access karta hai.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Conclusion</h3>
+        <p class="text-gray-300 mb-6 text-lg">
+          Classes, scopes, aur decorators Python ke powerful features hain jo code ko organized aur functional banate hain. Classes OOP ko sambhav banate hain, scopes variable accessibility ko manage karte hain, aur decorators reusable behavior jodte hain. Inhe master karne ke liye:
+          <ul class="list-disc ml-6 mb-4">
+            <li>Classes ka use karke projects jaise library system banayein.</li>
+            <li>Decorators ko logging ya authentication ke liye try karein.</li>
+            <li><a href="https://docs.python.org/3/" class="text-blue-400 hover:underline">Python documentation</a> ya Real Python, Coursera jaise platforms dekhein.</li>
+          </ul>
+          In concepts ko practice karein aur saaf, modular Python code likhein!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-950 py-6 border-t border-gray-800 opacity-0 pointer-events-none transition-opacity duration-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-gray-400">
+      <div>
+        <h3 class="text-lg font-semibold mb-2">Atharv Sharma</h3>
+        <p class="text-sm">
+          A passionate developer focused on creating beautiful, functional, and user-centered digital experiences.
+        </p>
+      </div>
+      <div class="mt-4 md:mt-0">
+        <h4 class="text-lg font-semibold mb-2">Connect</h4>
+        <div class="flex space-x-4">
+          <a href="https://github.com/AtharvSharma09" class="social-link animate-slide-in text-gray-400 hover:text-[#4A45EE]"><ion-icon name="logo-github"></ion-icon></a>
+          <a href="#" class="social-link animate-slide-in text-gray-400 hover:text-[#4A45EE]"><ion-icon name="logo-linkedin"></ion-icon></a>
+          <a href="#" class="social-link animate-slide-in text-gray-400 hover:text-[#4A45EE]"><ion-icon name="logo-instagram"></ion-icon></a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center text-gray-500 text-sm mt-4">
+      © 2025 Atharv Sharma. All rights reserved. | Designed and built with passion
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script>
+    const footer = document.querySelector("footer");
+    const langToggle = document.getElementById("langToggle");
+    const englishContent = document.getElementById("englishContent");
+    const hindiContent = document.getElementById("hindiContent");
+
+    function toggleFooter() {
+      if (window.scrollY > 100) {
+        footer.classList.remove("opacity-0", "pointer-events-none");
+      } else {
+        footer.classList.add("opacity-0", "pointer-events-none");
+      }
+    }
+
+    function toggleLanguage() {
+      console.log("Toggling language...");
+      if (englishContent.classList.contains("content-active")) {
+        englishContent.classList.remove("content-active");
+        englishContent.classList.add("hidden");
+        hindiContent.classList.remove("hidden");
+        hindiContent.classList.add("content-active");
+        langToggle.textContent = "Switch to English";
+      } else {
+        hindiContent.classList.remove("content-active");
+        hindiContent.classList.add("hidden");
+        englishContent.classList.remove("hidden");
+        englishContent.classList.add("content-active");
+        langToggle.textContent = "Switch to Hindi";
+      }
+    }
+
+    langToggle.addEventListener("click", toggleLanguage);
+    window.addEventListener("scroll", toggleFooter);
+    document.addEventListener("DOMContentLoaded", () => {
+      toggleFooter();
+      console.log("Page loaded, Prism.js initialized");
+    });
+  </script>
+</body>
+</html>
