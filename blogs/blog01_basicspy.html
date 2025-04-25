@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atharv Sharma - Blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/ionicons@5.5.2/dist/ionicons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .animate-fade-in { animation: fadeIn 1s ease-out; }
+    .animate-slide-in { animation: slideInLeft 0.5s ease-out; }
+    .nav-link:nth-child(1) { animation-delay: 0.1s; }
+    .nav-link:nth-child(2) { animation-delay: 0.2s; }
+    .nav-link:nth-child(3) { animation-delay: 0.3s; }
+    .nav-link:nth-child(4) { animation-delay: 0.4s; }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-200">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full p-6 border-b border-gray-800 shadow-sm bg-gray-950 z-10">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold"><span style="color: #4A45EE;">Atharv</span> Sharma</h1>
+      <nav class="space-x-4">
+        <a href="index.html" class="nav-link animate-slide-in hover:underline" style="color: #4A45EE;">Home</a>
+        <a href="projects.html" class="nav-link animate-slide-in hover:underline" style="color: #4A45EE;">Projects</a>
+        <a href="blog.html" class="nav-link animate-slide-in hover:underline" style="color: #4A45EE;">Blog</a>
+        <a href="contact.html" class="nav-link animate-slide-in font-semibold hover:underline" style="color: #4A45EE;">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Blog Content Section -->
+  <section class="py-16 pt-24 animate-fade-in">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-4xl font-bold">Python Basics: A Comprehensive Guide</h2>
+        <button id="langToggle" class="bg-[#4A45EE] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#3A35CE] transition">
+          Switch to Hindi
+        </button>
+      </div>
+
+      <!-- English Content (Default) -->
+      <div id="englishContent" class="content-active">
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">What is Python?</h3>
+        <p class="text-gray-300 mb-6 text-lg">
+          Python is a high-level, interpreted programming language celebrated for its clean syntax and versatility. Created by Guido van Rossum in 1991, Python emphasizes code readability, allowing developers to write concise programs. Its applications span web development (Django, Flask), data science (Pandas, NumPy), automation, machine learning (TensorFlow, Scikit-learn), and more. Python’s extensive standard library and active community make it a top choice for beginners and professionals alike.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Installing Python</h3>
+        <p class="text-gray-300 mb-6 text-lg">
+          To start coding in Python, you need to install it on your system:
+          <ol class="list-decimal ml-6 mb-4">
+            <li>Visit <a href="https://python.org" class="text-blue-400 hover:underline">python.org</a> and download the latest version (e.g., Python 3.12) for your operating system (Windows, macOS, or Linux).</li>
+            <li>Run the installer. On Windows, ensure you check “Add Python to PATH” to make Python accessible from the command line.</li>
+            <li>Open a terminal (Command Prompt on Windows, Terminal on macOS/Linux) and type <code>python --version</code>. If you see the version number, Python is installed correctly.</li>
+          </ol>
+          Tip: Use an IDE like VS Code or PyCharm for a better coding experience, with features like code completion and debugging.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Your First Python Program</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Let’s write a classic “Hello, World!” program to get started:
+        </p>
+        <pre><code class="language-python">print("Hello, World!")</code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          <strong>How to run it:</strong><br>
+          1. Create a file named <code>hello.py</code>.<br>
+          2. Copy the code above into the file.<br>
+          3. Open a terminal, navigate to the file’s directory, and run <code>python hello.py</code>.<br>
+          <strong>Output:</strong> <code>Hello, World!</code><br>
+          The <code>print()</code> function displays text on the console. You can also print numbers or variables, making it a versatile tool for debugging and output.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Variables and Data Types</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Variables are used to store data, and Python is dynamically typed, meaning you don’t need to declare the type explicitly. Here’s an example:
+        </p>
+        <pre><code class="language-python">
+name = "Rahul"    # String: Text data
+age = 25          # Integer: Whole numbers
+weight = 70.5     # Float: Decimal numbers
+is_student = True # Boolean: True or False
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          You can check a variable’s type using the <code>type()</code> function:
+        </p>
+        <pre><code class="language-python">
+print(type(name))  # Output: <class 'str'>
+print(type(age))   # Output: <class 'int'>
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          Python’s flexibility with data types allows seamless transitions between operations, but be cautious with type mismatches (e.g., adding a string to an integer).
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Basic Operations</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Python supports arithmetic and string operations:
+        </p>
+        <pre><code class="language-python">
+# Arithmetic Operations
+a = 10
+b = 5
+print(a + b)  # Addition: 15
+print(a - b)  # Subtraction: 5
+print(a * b)  # Multiplication: 50
+print(a / b)  # Division: 2.0
+print(a ** 2) # Exponentiation: 100
+
+# String Operations
+greeting = "Hello, "
+name = "Rahul"
+full_message = greeting + name  # Concatenation
+print(full_message)  # Output: Hello, Rahul
+print(name * 2)      # Repetition: RahulRahul
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          Use parentheses to control the order of operations, as Python follows PEMDAS (Parentheses, Exponents, Multiplication/Division, Addition/Subtraction).
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Lists and Dictionaries</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Python’s built-in data structures, like lists and dictionaries, are powerful for managing collections of data.
+        </p>
+        <p class="text-gray-300 mb-4 text-lg"><strong>Lists:</strong> Ordered, mutable collections.</p>
+        <pre><code class="language-python">
+fruits = ["apple", "banana", "orange"]
+print(fruits[0])       # Access first item: apple
+fruits.append("grape") # Add item
+print(fruits)          # Output: ['apple', 'banana', 'orange', 'grape']
+fruits[1] = "mango"    # Modify item
+print(fruits)          # Output: ['apple', 'mango', 'orange', 'grape']
+        </code></pre>
+        <p class="text-gray-300 mb-4 text-lg"><strong>Dictionaries:</strong> Key-value pairs for structured data.</p>
+        <pre><code class="language-python">
+student = {
+    "name": "Rahul",
+    "age": 25,
+    "is_student": True
+}
+print(student["name"])        # Access value: Rahul
+student["grade"] = "A"        # Add key-value pair
+print(student)                # Output: {'name': 'Rahul', 'age': 25, 'is_student': True, 'grade': 'A'}
+student["age"] = 26           # Update value
+print(student["age"])         # Output: 26
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          Lists are great for ordered data, while dictionaries excel at mapping relationships. Use methods like <code>len()</code>, <code>pop()</code>, or <code>keys()</code> to manipulate them.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Conditions (If-Else)</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Conditional statements control program flow based on conditions:
+        </p>
+        <pre><code class="language-python">
+age = 18
+if age >= 18:
+    print("You can vote!")
+elif age >= 16:
+    print("You can get a learner's permit.")
+else:
+    print("You cannot vote or drive.")
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          <strong>Output:</strong> <code>You can vote!</code><br>
+          Use <code>elif</code> for multiple conditions. Logical operators (<code>and</code>, <code>or</code>, <code>not</code>) can combine conditions, e.g., <code>if age >= 18 and is_registered:</code>.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Loops</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Loops automate repetitive tasks. Python offers <code>for</code> and <code>while</code> loops:
+        </p>
+        <p class="text-gray-300 mb-4 text-lg"><strong>For Loop:</strong> Iterates over a sequence.</p>
+        <pre><code class="language-python">
+for i in range(1, 6):
+    print(f"Number: {i}")  # Output: Number: 1, Number: 2, ..., Number: 5
+        </code></pre>
+        <p class="text-gray-300 mb-4 text-lg"><strong>While Loop:</strong> Runs until a condition is false.</p>
+        <pre><code class="language-python">
+count = 1
+while count <= 5:
+    print(f"Count: {count}")
+    count += 1  # Output: Count: 1, Count: 2, ..., Count: 5
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          Use <code>break</code> to exit a loop early or <code>continue</code> to skip an iteration. For example, <code>if count == 3: continue</code> skips printing 3.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Functions</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Functions encapsulate reusable code. Define them with <code>def</code>:
+        </p>
+        <pre><code class="language-python">
+def greet(name, greeting="Hello"):
+    return f"{greeting}, {name}!"
+print(greet("Rahul"))          # Output: Hello, Rahul!
+print(greet("Priya", "Hi"))    # Output: Hi, Priya!
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          Default parameters (e.g., <code>greeting="Hello"</code>) make functions flexible. Use <code>return</code> to output values or <code>None</code> implicitly if no value is returned.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Error Handling</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Python uses <code>try</code> and <code>except</code> to handle errors gracefully:
+        </p>
+        <pre><code class="language-python">
+try:
+    number = int(input("Enter a number: "))
+    print(f"Double: {number * 2}")
+except ValueError:
+    print("Please enter a valid number!")
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          This code catches invalid inputs (e.g., entering “abc” instead of a number). Use <code>finally</code> for cleanup or <code>else</code> for code that runs if no error occurs.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Practical Example: Simple Calculator</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Let’s combine concepts to build a basic calculator:
+        </p>
+        <pre><code class="language-python">
+def calculator():
+    try:
+        num1 = float(input("Enter first number: "))
+        op = input("Enter operator (+, -, *, /): ")
+        num2 = float(input("Enter second number: "))
+        
+        if op == "+":
+            result = num1 + num2
+        elif op == "-":
+            result = num1 - num2
+        elif op == "*":
+            result = num1 * num2
+        elif op == "/":
+            if num2 == 0:
+                raise ValueError("Cannot divide by zero!")
+            result = num1 / num2
+        else:
+            raise ValueError("Invalid operator!")
+        
+        print(f"Result: {result}")
+    except ValueError as e:
+        print(f"Error: {e}")
+
+calculator()
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          This program uses functions, conditionals, error handling, and user input to perform calculations. Try running it to see how it handles valid and invalid inputs.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Conclusion</h3>
+        <p class="text-gray-300 mb-6 text-lg">
+          Python’s simplicity and power make it an excellent choice for beginners. This guide covered variables, data types, operations, lists, dictionaries, conditionals, loops, functions, and error handling. To deepen your skills:
+          <ul class="list-disc ml-6 mb-4">
+            <li>Practice by building small projects, like a to-do list or number guessing game.</li>
+            <li>Explore Python’s standard library and modules like <code>random</code> or <code>math</code>.</li>
+            <li>Check out resources like the <a href="https://docs.python.org/3/" class="text-blue-400 hover:underline">Python documentation</a> or online platforms like Codecademy or freeCodeCamp.</li>
+          </ul>
+          Keep coding, and you’ll soon unlock Python’s full potential!
+        </p>
+      </div>
+
+      <!-- Hindi Content (Hidden by Default) -->
+      <div id="hindiContent" class="content-hidden hidden">
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Python Kya Hai?</h3>
+        <p class="text-gray-300 mb-6 text-lg">
+          Python ek high-level, interpreted programming language hai jo apne saaf aur padhne mein aasan syntax ke liye jani jati hai. Isko Guido van Rossum ne 1991 mein banaya tha, aur yeh code ko chhota aur samajhne mein aasan banata hai. Python ka use web development (Django, Flask), data science (Pandas, NumPy), automation, machine learning (TensorFlow, Scikit-learn) aur kai aur cheezon mein hota hai. Iski badi standard library aur active community isse beginners aur professionals ke liye pasandida banati hai.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Python Install Kaise Karein?</h3>
+        <p class="text-gray-300 mb-6 text-lg">
+          Python coding shuru karne ke liye, ise apne system mein install karna hoga:
+          <ol class="list-decimal ml-6 mb-4">
+            <li><a href="https://python.org" class="text-blue-400 hover:underline">python.org</a> par jayein aur apne operating system (Windows, macOS, ya Linux) ke liye latest version (jaise Python 3.12) download karein.</li>
+            <li>Installer chalayein. Windows mein “Add Python to PATH” option check karein taaki Python command line se use ho sake.</li>
+            <li>Terminal kholein (Windows mein Command Prompt, macOS/Linux mein Terminal) aur <code>python --version</code> type karein. Agar version number dikhe, toh Python sahi se install hai.</li>
+          </ol>
+          Tip: VS Code ya PyCharm jaise IDE ka use karein, jo code completion aur debugging jaisi features dete hain.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Python Ka Pehla Program</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Chaliye, ek simple “Hello, World!” program likhte hain:
+        </p>
+        <pre><code class="language-python">print("Hello, World!")</code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          <strong>Ise kaise chalayein:</strong><br>
+          1. Ek file banayein, naam rakhein <code>hello.py</code>.<br>
+          2. Upar ka code isme copy karein.<br>
+          3. Terminal mein file ke directory mein jayein aur <code>python hello.py</code> run karein.<br>
+          <strong>Output:</strong> <code>Hello, World!</code><br>
+          <code>print()</code> function console par text dikhata hai. Aap isse numbers ya variables bhi print kar sakte hain, jo debugging ke liye kaam aata hai.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Variables Aur Data Types</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Variables data store karte hain, aur Python dynamically typed hai, yani type declare karne ki zarurat nahi. Example:
+        </p>
+        <pre><code class="language-python">
+naam = "Rahul"    # String: Text data
+umar = 25         # Integer: Poore number
+weight = 70.5     # Float: Decimal number
+is_student = True # Boolean: True ya False
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          Variable ka type check karne ke liye <code>type()</code> function use karein:
+        </p>
+        <pre><code class="language-python">
+print(type(naam))  # Output: <class 'str'>
+print(type(umar))  # Output: <class 'int'>
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          Python ka data types ke sath flexibility operations ko aasan banata hai, lekin type mismatch se savdhan rahein (jaise string aur integer ko jodna).
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Basic Operations</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Python numbers aur strings ke sath operations deta hai:
+        </p>
+        <pre><code class="language-python">
+# Arithmetic Operations
+a = 10
+b = 5
+print(a + b)  # Jod: 15
+print(a - b)  # Ghatao: 5
+print(a * b)  # Guna: 50
+print(a / b)  # Bhag: 2.0
+print(a ** 2) # Ghat: 100
+
+# String Operations
+greeting = "Namaste, "
+naam = "Rahul"
+purana_sandes = greeting + naam  # Jodna
+print(purana_sandes)  # Output: Namaste, Rahul
+print(naam * 2)       # Repeat: RahulRahul
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          Operations ke order ko control karne ke liye parentheses ka use karein, kyunki Python PEMDAS (Parentheses, Exponents, Multiplication/Division, Addition/Subtraction) follow karta hai.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Lists Aur Dictionaries</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Python ke built-in data structures jaise lists aur dictionaries data collections ke liye kaam aate hain.
+        </p>
+        <p class="text-gray-300 mb-4 text-lg"><strong>Lists:</strong> Ordered, badalne yogya collections.</p>
+        <pre><code class="language-python">
+phal = ["seb", "kela", "santara"]
+print(phal[0])       # Pehla item: seb
+phal.append("angoor") # Item jodna
+print(phal)          # Output: ['seb', 'kela', 'santara', 'angoor']
+phal[1] = "aam"      # Item badalna
+print(phal)          # Output: ['seb', 'aam', 'santara', 'angoor']
+        </code></pre>
+        <p class="text-gray-300 mb-4 text-lg"><strong>Dictionaries:</strong> Key-value pairs ke liye.</p>
+        <pre><code class="language-python">
+vidyarthi = {
+    "naam": "Rahul",
+    "umar": 25,
+    "is_student": True
+}
+print(vidyarthi["naam"])      # Value: Rahul
+vidyarthi["grade"] = "A"      # Naya key-value jodna
+print(vidyarthi)              # Output: {'naam': 'Rahul', 'umar': 25, 'is_student': True, 'grade': 'A'}
+vidyarthi["umar"] = 26        # Value badalna
+print(vidyarthi["umar"])      # Output: 26
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          Lists ordered data ke liye behtar hain, jabki dictionaries relationships ko map karne mein. <code>len()</code>, <code>pop()</code>, ya <code>keys()</code> jaise methods ka use karein.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Conditions (If-Else)</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Conditional statements program ke flow ko control karte hain:
+        </p>
+        <pre><code class="language-python">
+umar = 18
+if umar >= 18:
+    print("Aap vote kar sakte hain!")
+elif umar >= 16:
+    print("Aap learner's permit le sakte hain.")
+else:
+    print("Aap na vote kar sakte hain na drive.")
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          <strong>Output:</strong> <code>Aap vote kar sakte hain!</code><br>
+          Multiple conditions ke liye <code>elif</code> use karein. Logical operators (<code>and</code>, <code>or</code>, <code>not</code>) conditions ko jod sakte hain, jaise <code>if umar >= 18 and is_registered:</code>.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Loops</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Loops bar-bar ke kaam ke liye hain. Python mein <code>for</code> aur <code>while</code> loops hain:
+        </p>
+        <p class="text-gray-300 mb-4 text-lg"><strong>For Loop:</strong> Sequence ke liye.</p>
+        <pre><code class="language-python">
+for i in range(1, 6):
+    print(f"Number: {i}")  # Output: Number: 1, Number: 2, ..., Number: 5
+        </code></pre>
+        <p class="text-gray-300 mb-4 text-lg"><strong>While Loop:</strong> Jab tak condition sach hai.</p>
+        <pre><code class="language-python">
+ginti = 1
+while ginti <= 5:
+    print(f"Ginti: {ginti}")
+    ginti += 1  # Output: Ginti: 1, Ginti: 2, ..., Ginti: 5
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          <code>break</code> se loop jaldi khatam kar sakte hain, aur <code>continue</code> se ek iteration skip kar sakte hain, jaise <code>if ginti == 3: continue</code> 3 ko skip karta hai.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Functions</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Functions reusable code ke blocks hote hain. <code>def</code> se define karein:
+        </p>
+        <pre><code class="language-python">
+def greet(naam, greeting="Namaste"):
+    return f"{greeting}, {naam}!"
+print(greet("Rahul"))          # Output: Namaste, Rahul!
+print(greet("Priya", "Hi"))    # Output: Hi, Priya!
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          Default parameters (jaise <code>greeting="Namaste"</code>) functions ko flexible banate hain. <code>return</code> value deta hai, warna <code>None</code> return hota hai.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Error Handling</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Python <code>try</code> aur <code>except</code> se errors ko gracefully handle karta hai:
+        </p>
+        <pre><code class="language-python">
+try:
+    number = int(input("Ek number daalein: "))
+    print(f"Do guna: {number * 2}")
+except ValueError:
+    print("Kripya ek sahi number daalein!")
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          Yeh code galat input (jaise “abc” number ke bajaye) ko pakadta hai. <code>finally</code> cleanup ke liye ya <code>else</code> error na hone par code chalane ke liye use hota hai.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Practical Example: Simple Calculator</h3>
+        <p class="text-gray-300 mb-4 text-lg">
+          Concepts ko jodkar ek basic calculator banayein:
+        </p>
+        <pre><code class="language-python">
+def calculator():
+    try:
+        num1 = float(input("Pehla number daalein: "))
+        op = input("Operator daalein (+, -, *, /): ")
+        num2 = float(input("Doosra number daalein: "))
+        
+        if op == "+":
+            result = num1 + num2
+        elif op == "-":
+            result = num1 - num2
+        elif op == "*":
+            result = num1 * num2
+        elif op == "/":
+            if num2 == 0:
+                raise ValueError("Zero se divide nahi kar sakte!")
+            result = num1 / num2
+        else:
+            raise ValueError("Galat operator!")
+        
+        print(f"Parinaam: {result}")
+    except ValueError as e:
+        print(f"Error: {e}")
+
+calculator()
+        </code></pre>
+        <p class="text-gray-300 mb-6 text-lg">
+          Yeh program functions, conditionals, error handling, aur user input ka use karta hai. Ise chalakar dekhein ki yeh sahi aur galat inputs kaise sambhalta hai.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2C8A9A;">Conclusion</h3>
+        <p class="text-gray-300 mb-6 text-lg">
+          Python ka simple aur powerful nature isse beginners ke liye behtareen banata hai. Is guide mein humne variables, data types, operations, lists, dictionaries, conditionals, loops, functions, aur error handling cover kiye. Apne skills badhane ke liye:
+          <ul class="list-disc ml-6 mb-4">
+            <li>Chhote projects banayein, jaise to-do list ya number guessing game.</li>
+            <li>Python ki standard library aur modules jaise <code>random</code> ya <code>math</code> explore karein.</li>
+            <li><a href="https://docs.python.org/3/" class="text-blue-400 hover:underline">Python documentation</a> ya Codecademy, freeCodeCamp jaise platforms dekhein.</li>
+          </ul>
+          Coding jari rakhein, aur jaldi hi aap Python ki puri shakti unlock kar lenge!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-950 py-6 border-t border-gray-800 opacity-0 pointer-events-none transition-opacity duration-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-gray-400">
+      <div>
+        <h3 class="text-lg font-semibold mb-2">Atharv Sharma</h3>
+        <p class="text-sm">
+          A passionate developer focused on creating beautiful, functional, and user-centered digital experiences.
+        </p>
+      </div>
+      <div class="mt-4 md:mt-0">
+        <h4 class="text-lg font-semibold mb-2">Connect</h4>
+        <div class="flex space-x-4">
+          <a href="https://github.com/AtharvSharma09" class="social-link animate-slide-in text-gray-400 hover:text-[#4A45EE]"><ion-icon name="logo-github"></ion-icon></a>
+          <a href="#" class="social-link animate-slide-in text-gray-400 hover:text-[#4A45EE]"><ion-icon name="logo-linkedin"></ion-icon></a>
+          <a href="#" class="social-link animate-slide-in text-gray-400 hover:text-[#4A45EE]"><ion-icon name="logo-instagram"></ion-icon></a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center text-gray-500 text-sm mt-4">
+      © 2025 Atharv Sharma. All rights reserved. | Designed and built with passion
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script>
+    const footer = document.querySelector("footer");
+    const langToggle = document.getElementById("langToggle");
+    const englishContent = document.getElementById("englishContent");
+    const hindiContent = document.getElementById("hindiContent");
+
+    function toggleFooter() {
+      if (window.scrollY > 100) {
+        footer.classList.remove("opacity-0", "pointer-events-none");
+      } else {
+        footer.classList.add("opacity-0", "pointer-events-none");
+      }
+    }
+
+    function toggleLanguage() {
+      if (englishContent.classList.contains("content-active")) {
+        englishContent.classList.remove("content-active");
+        englishContent.classList.add("hidden");
+        hindiContent.classList.remove("hidden");
+        hindiContent.classList.add("content-active");
+        langToggle.textContent = "Switch to English";
+      } else {
+        hindiContent.classList.remove("content-active");
+        hindiContent.classList.add("hidden");
+        englishContent.classList.remove("hidden");
+        englishContent.classList.add("content-active");
+        langToggle.textContent = "Switch to Hindi";
+      }
+    }
+
+    langToggle.addEventListener("click", toggleLanguage);
+    window.addEventListener("scroll", toggleFooter);
+    document.addEventListener("DOMContentLoaded", toggleFooter);
+  </script>
+</body>
+</html>
